@@ -1,0 +1,54 @@
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-3 col-sm-4 col-xs-12 center-block">
+                <ul class="toggle">
+                    <p class="header">Docs</p>
+                    <li><a href="{{home}}/docs/">Welcome</a></li>
+		            <li><a href="{{home}}/docs/concepts">Concepts</a></li>
+<!--
+                    <li><a href="{{home}}/docs/setup">Setup</a></li>
+                    <li><a href="{{home}}/docs/tasks">Tasks</a></li>
+                    <li><a href="{{home}}/docs/guides">Guides</a></li>
+-->
+                    <li><a href="{{home}}/docs/reference">Reference</a></li>
+                </ul>
+            </div>
+
+            <hr class="footer-sections" />
+
+            <div class="col-md-3 col-sm-4 col-xs-12 center-block">
+                <ul class="toggle">
+                    <p class="header">Resources</p>
+<!--
+					<li><a href="{{home}}/faq">Frequently Asked Questions</a></li>
+					<li><a href="{{home}}/troubleshooting">Troubleshooting Guide</a></li>
+-->
+                    <li><a href="{{home}}/bugs">Report a Bug</a></li>
+                    <li><a href="https://github.com/grafeas/grafeas.github.io/issues/new?title=Issue with {{page.path}}">Report a Doc Issue</a></li>
+                    <li><a href="https://github.com/grafeas/grafeas.github.io/edit/master/{{page.path}}">Edit This Page on GitHub</a></li>
+                </ul>
+            </div>
+
+            <hr class="footer-sections" />
+
+            <div class="col-md-3 col-sm-4 col-xs-12 center-block">
+                <ul class="toggle">
+                    <p class="header">Community</p>
+                    <li><a href="https://groups.google.com/forum/#!forum/grafeas-users" target="_blank"><span class="group">User</span></a></li>
+                    <li><a href="https://github.com/grafeas/grafeas" target="_blank"><span class="github">GitHub</span></a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row">
+            <p class="description small text-center">
+                <!--Grafeas Version {{site.data.istio.version}}, -->Copyright &copy; 2017 Grafeas Authors<br>
+                This site was built on {{site.time | date_to_string | split: ' ' | join: '-'}}
+            </p>
+        </div>
+    </div>
+</footer>
