@@ -19,4 +19,4 @@ Grafeas's benefits include:
 - **Pluggable**: Grafeas makes it easy to add new metadata producers and consumers (for example, if you decide to add or change security scanners, add new build systems, etc.)
 - **Structured**: Structured metadata schemas for common metadata types (e.g., vulnerability, build, attestation, and package index metadata) let you add new metadata types and providers, and the tools that depend on Grafeas can immediately understand those new sources.
 - **Strong access controls**: Grafeas allows you to carefully control access for multiple metadata producers and consumers.
-- **Rich query-ability**: With Grafeas, you can easily query all metadata across all of your components so you don’t have to 
+- **Rich query-ability**: With Grafeas, you can easily query all metadata across all of your components so you don’t have to. 
