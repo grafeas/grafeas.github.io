@@ -1,7 +1,7 @@
 ---
 title: "Introducing Grafeas: An open-source API to audit and govern your software supply chain"
 overview: Grafeas announcement
-published: false
+published: true
 permalink: blog/introducing-grafeas
 attribution: The Grafeas Team
 layout: post
