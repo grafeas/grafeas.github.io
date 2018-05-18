@@ -9,7 +9,8 @@ layout: docs
 type: markdown
 ---
 
-Find the source for Grafeas API reference docs for each version.
+Grafeas API reference documentation
+
 ## v1Alpha1
 
 https://github.com/grafeas/grafeas/blob/master/v1alpha1/docs/GrafeasApi.md
