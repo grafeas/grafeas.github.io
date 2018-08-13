@@ -115,6 +115,9 @@ As an exception to this rule, our policy language allows glob-based container im
 ## Conclusion and Next Steps
 Binary Authorization enables centralized control over software release cycle. Stakeholders configure policies to enforce the requirements of the release process, gaining confidence that software is delivered to customers only if it meets the organization’s requirements. Attestations - trusted metadata associated to software artifacts - are used to assert that software meets specified requirements.
 
+Kritis Beta release is available [here](https://github.com/grafeas/kritis/releases). For more information, see the [tutorial](https://github.com/grafeas/kritis/blob/master/tutorial.md).
+
+
 ### Generalizing to Other Orchestration Systems
 We described our first, GKE specific, implementation of BinAuthz, however we note that the basic principles apply to a variety of orchestration systems. We plan to support other GCP platforms (such as App Engine and App Engine Flex) in the future. Furthermore, an open specification of BinAuthz is forthcoming.
 
