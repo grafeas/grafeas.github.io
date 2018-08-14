@@ -10,30 +10,30 @@ type: markdown
 
 # Grafeas: A Component Metadata API
 
-Grafeas defines an API spec for managing metadata about software artifacts, such
-as VM images, jar files, scripts, and so on. You can use Grafeas to define and
-aggregate information about your project's components.
+Grafeas defines an API spec for managing metadata about software resources, such
+as containers, Virtual Machine (VM) images, JAR files, and scripts. You can use
+Grafeas to define and aggregate information about your project's components.
 
-Grafeas divides metadata information into [_notes_](#notes), which contain
-high-level information, and [_occurrences_](#occurrences), which contain
-information about how and when notes occur in a particular project. This
-division allows third party metadata providers to create and manage metadata on
-behalf of many customers. It also allows for fine-grained access control of
-different types of metadata.
+Grafeas divides metadata information into [_notes_](#notes), which are
+high-level descriptions of particular types of metadata, and
+[_occurrences_](#occurrences), which contain information about how and when
+notes occur on a particular resource. This division allows third-party metadata
+providers to create and manage metadata on behalf of many customers. It also
+allows for fine-grained access control of different types of metadata.
 
 ## Definition of terms
 
 ### Notes
 
 A _note_ describes a high-level piece of metadata. Notes are generally found via
-analysis, and are things that occur multiple times across different projects.
-For example, you could create a note about a particular vulnerability after
-analyzing a Linux package. You would also use a note to store information about
-the builder of a build process. Notes are often owned and created by providers
-who analyze users' packages.
+analysis and occur multiple times across different projects. For example, you
+could create a note about a particular vulnerability after analyzing a Linux
+package. You would also use a note to store information about the builder of a
+build process. Notes are often owned and created by the providers doing the
+analysis.
 
 Note names should follow the format `/projects/<project_id>/notes/<note_id>`.
-The note id needs to be unique per note-project, and informative if possible.
+The note ID must be unique per note-project, and as informative as possible.
 It's generally preferable to store notes and occurrences in separate projects,
 allowing for more fine-grained access control.
 
@@ -50,7 +50,7 @@ a note about build details would describe the container images that resulted
 from a build.
 
 Occurrence names should follow the format
-`/projects/<project_id>/occurrences/<occurrence_id>`. The occurrence id must be
+`/projects/<project_id>/occurrences/<occurrence_id>`. The occurrence ID must be
 unique per occurrence-project and is often random. Typically, occurrences are
 stored in separate projects than the ones where notes are created.
 
@@ -60,11 +60,10 @@ link a note to the occurrence. Any users can have read access to occurrences.
 ### Resource URLs
 
 A _resource URL_ is a unique URL for the image or the container to which a given
-occurrence applies. Component resource URLs should be both unique per resource
-and immutable. This ensures that each occurrence is always associated with
-exactly one component. If using resources that cannot be made immutable, you
-should append a timestamp. Where possible, prefer content addressable resource
-URLs.
+occurrence applies. Component resource URLs must be unique per resource and
+immutable. This ensures that each occurrence is always associated with exactly
+one component. If using resources that cannot be made immutable, you must append
+a timestamp. Where possible, use content addressable resource URLs.
 
 The following table provides examples of possible resource URLs for several
 component types:
@@ -90,15 +89,15 @@ also makes it easy to expand Grafeas to support new metadata types.
 The currently supported kinds are defined below, along with a brief summary of
 the type of information each kind of note and occurrence contains.
 
-|Kind                 |Note Summary                                   |Occurrence Summary     |
-|---------------------|-----------------------------------------------|-----------------------|
-|ATTESTATION          |A logical attestation role or authority, used as an anchor for specific attestations|An attestation by an authority for a specific property and resource|
-|BUILD_DETAILS        |Builder version and signature                  |Details of this specific build, such as inputs and outputs|
-|DEPLOYMENT_HISTORY   |A resource that can be deployed                |Details of each deployment of the resource|
-|DISCOVERY            |Only used as an anchor for specific occurrences|Information about the status of an image after the first scan, such as package vulnerability, base image, and package manager info|
-|IMAGE_BASIS          |Information about the base image of a container|Information about layers included on top of the base image in a particular container|
-|PACKAGE_MANAGER      |Package descriptions                           |Filesystem locations detailing where the package is installed in a specific resource|
-|PACKAGE_VULNERABILITY|CVE or vulnerability description and details including severity, versions|Affected packages/versions in a specific resource|
+|Kind         |Note Summary                                   |Occurrence Summary     |
+|-------------|-----------------------------------------------|-----------------------|
+|ATTESTATION  |A logical attestation role or authority, used as an anchor for specific attestations|An attestation by an authority for a specific property and resource|
+|BUILD        |Builder version and signature                  |Details of this specific build, such as inputs and outputs|
+|DEPLOYMENT   |A resource that can be deployed                |Details of each deployment of the resource|
+|DISCOVERY    |Only used as an anchor for specific occurrences|Information about the status of an image after the first scan, such as package vulnerability, base image, and package manager info|
+|IMAGE        |Information about the base image of a container|Information about layers included on top of the base image in a particular container|
+|PACKAGE      |Package descriptions                           |Filesystem locations detailing where the package is installed in a specific resource|
+|VULNERABILITY|CVE or vulnerability description and details including severity, versions|Affected packages/versions in a specific resource|
 
 ## Next steps
 You can run Grafeas locally following [these
