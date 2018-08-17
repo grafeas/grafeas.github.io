@@ -33,7 +33,10 @@ build process. Notes are often owned and created by the providers doing the
 analysis.
 
 Note names should follow the format `/projects/<project_id>/notes/<note_id>`.
-The note ID must be unique per note-project, and as informative as possible.
+The note ID must be unique per project, and as informative as possible. For
+example, the name of a vulnerability note could be `CVE-2013-4869`, referencing
+the CVE it describes.
+
 It's generally preferable to store notes and occurrences in separate projects,
 allowing for more fine-grained access control.
 
@@ -51,16 +54,17 @@ from a build.
 
 Occurrence names should follow the format
 `/projects/<project_id>/occurrences/<occurrence_id>`. The occurrence ID must be
-unique per occurrence-project and is often random. Typically, occurrences are
-stored in separate projects than the ones where notes are created.
+unique per project and is often random. Typically, occurrences are stored in
+separate projects than those where notes are created.
 
 Write access to occurrences should only be granted to users who have access to
 link a note to the occurrence. Any users can have read access to occurrences.
 
 ### Resource URLs
 
-A _resource URL_ is a unique URL for the image or the container to which a given
-occurrence applies. Component resource URLs must be unique per resource and
+A _resource URL_ is a unique URL for the resource to which a given occurrence
+applies. Common examples of resources are containers, Virtual Machine (VM)
+images, or JAR files. Component resource URLs must be unique per resource and
 immutable. This ensures that each occurrence is always associated with exactly
 one component. If using resources that cannot be made immutable, you must append
 a timestamp. Where possible, use content addressable resource URLs.
