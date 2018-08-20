@@ -17,7 +17,7 @@ components.
 
 Grafeas divides the metadata information into [_notes_](#notes) and
 [_occurrences_](#occurrences). Notes are high-level descriptions of particular
-types of metadata. Occurrences are instantiations of notes which describe how
+types of metadata. Occurrences are instantiations of notes, which describe how
 and when a given note occurs on the resource associated with the occurrence.
 This division allows third-party metadata providers to create and manage
 metadata on behalf of many customers. It also allows for fine-grained access
@@ -34,7 +34,7 @@ generally found via analysis and occur multiple times across different projects.
 Note names must follow the format `/projects/<project_id>/notes/<note_id>`. The
 note ID must be unique per project, and be as informative as possible. For
 example, the name of a vulnerability note could be `CVE-2013-4869`, referencing
-the CVE it describes.
+the [CVE](http://cve.mitre.org/) it describes.
 
 It's generally preferable to store notes and occurrences in separate projects,
 allowing for more fine-grained access control.
@@ -82,7 +82,7 @@ NuGet          | nuget://module:version                   | nuget://log4net:9.0.
 Python         | pip://package:version                    | pip://raven:5.13.0
 RPM            | rpm://dist(optional):arch:name:version   | rpm://el6:i386:ImageMagick:6.7.2.7-4
 
-## Kind Specific Schemas
+## Kind-Specific Schemas
 
 Each kind of metadata information has a strict schema. This allows you to
 normalize data from multiple providers, making it easier to see meaningful
