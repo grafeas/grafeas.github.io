@@ -11,29 +11,28 @@ type: markdown
 # Grafeas: A Component Metadata API
 
 Grafeas defines an API spec for managing metadata about software resources, such
-as containers, Virtual Machine (VM) images, JAR files, and scripts. You can use
-Grafeas to define and aggregate information about your project's components.
+as container images, Virtual Machine (VM) images, JAR files, and scripts. You
+can use Grafeas to define and aggregate information about your project's
+components.
 
-Grafeas divides metadata information into [_notes_](#notes), which are
-high-level descriptions of particular types of metadata, and
-[_occurrences_](#occurrences), which contain information about how and when
-notes occur on a particular resource. This division allows third-party metadata
-providers to create and manage metadata on behalf of many customers. It also
-allows for fine-grained access control of different types of metadata.
+Grafeas divides the metadata information into [_notes_](#notes) and
+[_occurrences_](#occurrences). Notes are high-level descriptions of particular
+types of metadata. Occurrences are instantiations of notes which describe how
+and when a given note occurs on the resource associated with the occurrence.
+This division allows third-party metadata providers to create and manage
+metadata on behalf of many customers. It also allows for fine-grained access
+control of different types of metadata.
 
-## Definition of terms
+## Notes
 
-### Notes
+A _note_ describes a high-level piece of metadata. For example, you could create
+a note about a particular vulnerability after analyzing a Linux package. You
+would also use a note to store information about the builder of a build process.
+Notes are often owned and created by the providers doing the analysis. Notes are
+generally found via analysis and occur multiple times across different projects.
 
-A _note_ describes a high-level piece of metadata. Notes are generally found via
-analysis and occur multiple times across different projects. For example, you
-could create a note about a particular vulnerability after analyzing a Linux
-package. You would also use a note to store information about the builder of a
-build process. Notes are often owned and created by the providers doing the
-analysis.
-
-Note names should follow the format `/projects/<project_id>/notes/<note_id>`.
-The note ID must be unique per project, and as informative as possible. For
+Note names must follow the format `/projects/<project_id>/notes/<note_id>`. The
+note ID must be unique per project, and be as informative as possible. For
 example, the name of a vulnerability note could be `CVE-2013-4869`, referencing
 the CVE it describes.
 
@@ -43,9 +42,9 @@ allowing for more fine-grained access control.
 Notes should be editable only by the note owner, and read-only for users who
 have access to occurrences referencing them.
 
-### Occurrences
+## Occurrences
 
-An _occurrence_ is essentially an instantiation of a note. Occurrences describe
+An _occurrence_ is an instantiation of a note. Occurrences describe
 project-specific details of a given note. For example, an occurrence of a note
 about a vulnerability would describe the package that the vulnerability was
 found in, specific remediation steps, and so on. Alternatively, an occurrence of
@@ -58,16 +57,16 @@ unique per project and is often random. Typically, occurrences are stored in
 separate projects than those where notes are created.
 
 Write access to occurrences should only be granted to users who have access to
-link a note to the occurrence. Any users can have read access to occurrences.
+link a note to the occurrence. Any user can have read access to occurrences.
 
-### Resource URLs
+## Resource URLs
 
 A _resource URL_ is a unique URL for the resource to which a given occurrence
-applies. Common examples of resources are containers, Virtual Machine (VM)
-images, or JAR files. Component resource URLs must be unique per resource and
-immutable. This ensures that each occurrence is always associated with exactly
-one component. If using resources that cannot be made immutable, you must append
-a timestamp. Where possible, use content addressable resource URLs.
+applies. Common examples of resources are container images, Virtual Machine (VM)
+images, or JAR files. Resource URLs must be unique per resource and immutable.
+This ensures that each occurrence is always associated with exactly one
+component. If using resources that cannot be made immutable, you must append a
+timestamp. Where possible, use content-addressable resource URLs.
 
 The following table provides examples of possible resource URLs for several
 component types:
