@@ -1,13 +1,12 @@
---------------------------------------------------------------------------------
-
-title: Overview overview: Provides a conceptual introduction to Grafeas,
-including the problems it solves and its high-level architecture.
+---
+title: Overview
+overview: Provides a conceptual introduction to Grafeas, including the problems it solves and its high-level architecture.
 
 order: 15
 
 layout: docs
-
-## type: markdown
+type: markdown
+---
 
 # Grafeas: A Component Metadata API
 
