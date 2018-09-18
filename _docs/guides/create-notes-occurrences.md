@@ -9,9 +9,8 @@ type: markdown
 ---
 
 Notes and occurrences are the basic building blocks of storing metadata in
-Grafeas. Creating and managing them allows you to track information about your
-project. A _[note](/_docs/concepts/what-is-grafeas/overview.md)_ the high-level
-information about a piece of metadata, whereas an
+Grafeas. A _[note](/_docs/concepts/what-is-grafeas/overview.md)_ represents
+high-level information about a piece of metadata, whereas an
 _[occurrence](/_docs/concepts/what-is-grafeas/overview.md)_ describes the
 the occurrence of the note in the project.
 
