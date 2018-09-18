@@ -8,9 +8,13 @@ layout: docs
 type: markdown
 ---
 
-This guide walks you through creating
-[notes](/_docs/concepts/what-is-grafeas/overview.md) and
-[occurrences](/_docs/concepts/what-is-grafeas/overview.md) on a running Grafeas
+Notes and occurrences are the basic building blocks of storing data in Grafeas.
+Creating and managing them allows you to track information about your project.
+A _[note](/_docs/concepts/what-is-grafeas/overview.md)_ describes high-level
+information, whereas an _[occurrence](/_docs/concepts/what-is-grafeas/overview.md)_
+describes the project-specific details of a given note.
+
+This guide walks you through creating notes and occurrences on a running Grafeas
 server.
 
 ## Before you begin
@@ -81,13 +85,16 @@ curl http://localhost:8080/v1alpha1/projects/provider_example/notes
 
 ### Using Java
 
-The code sample below uses Java, but the Go, Python, and Ruby client libraries
-work in a similar way. You can add the following methods to your
-[GrafeasApiExample](https://github.com/nhayes/client-java/#getting-started)
-class, or the equivalent class that you're using to talk to the client library.
+The code example below uses Java, but the Go, Python, and Ruby client libraries
+work in a similar way.
+
+Add the following methods to the class you're using to talk to the client
+library. If you followed the
+[getting started guide](https://github.com/grafeas/client-java/#getting-started),
+this is the `GrafeasApiExample` class.
 
 When calling the below method, you'll need to specify the `provider_example`
-project with its full name: "projects/provider_example".
+project with its full name: `projects/provider_example`.
 
 ```java
 /**
