@@ -104,7 +104,7 @@ the type of information each kind of note and occurrence contains.
 
 ## Next steps
 You can run Grafeas locally following [these
-instructions](docs/running_grafeas.md). Once you have a running server, you can
-use the [client libraries](https://github.com/grafeas) to experiment with
-creating notes and occurrences in Grafeas. There are client libraries available
-in Java, Go, Ruby, and Python.
+instructions](https://github.com/grafeas/grafeas/blob/master/docs/running_grafeas.md).
+Once you have a running server, you can use the [client libraries]
+(https://github.com/grafeas) to experiment with creating notes and occurrences
+in Grafeas. There are client libraries available in Java, Go, Ruby, and Python.
