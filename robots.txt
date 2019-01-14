@@ -7,4 +7,4 @@ User-agent: *
 {% endif %}{% endfor %}{% if isset != true %}Disallow:
 {% endif %}
 Disallow: /v-0.1
-Sitemap: https://istio.io/sitemap.xml
+Sitemap: https://grafeas.io/sitemap.xml

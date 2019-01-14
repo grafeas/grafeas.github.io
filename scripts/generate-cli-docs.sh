@@ -5,9 +5,9 @@ set -o nounset
 set -o pipefail
 
 # TODO(REVIEWER): how do we want to handle finding the two binaries? set a default and try, or abort?
-ISTIOCTL=${ISTIOCTL:-istioctl}
-if [[ -z "${ISTIO_CA_CLI}" ]]; then
-    echo "No istio_ca command defined via the environment variable ISTIO_CA_CLI"
+GRAFEASCTL=${GRAFEASCTL:-grafeasctl}
+if [[ -z "${GRAFEAS_CA_CLI}" ]]; then
+    echo "No grafeas_ca command defined via the environment variable GRAFEAS_CA_CLI"
     exit 1
 fi
 if [[ -z "${MIXCOL_CLI}" ]]; then
@@ -15,8 +15,8 @@ if [[ -z "${MIXCOL_CLI}" ]]; then
     exit 1
 fi
 
-ISTIO_BASE=$(cd "$(dirname "$0")" ; pwd -P)/..
-OUTPUT_DIR=$(readlink -f ${ISTIO_BASE}/_docs/reference/commands/)
+GRAFEAS_BASE=$(cd "$(dirname "$0")" ; pwd -P)/..
+OUTPUT_DIR=$(readlink -f ${GRAFEAS_BASE}/_docs/reference/commands/)
 WORKING_DIR=$(mktemp -d)
 
 function pageHeader() {
@@ -39,7 +39,7 @@ function generateIndex() {
     cat <<EOF
 ---
 title: CLI
-overview: Describes usage and options of the Istio CLI and other utilities.
+overview: Describes usage and options of the grafeas CLI and other utilities.
 order: 30
 layout: docs
 type: markdown
@@ -90,10 +90,10 @@ function processPerBinaryFiles() {
     done
 
     # Command line help text output must use full path but
-    # pre-processed istio.io pages should use relative paths.
+    # pre-processed grafeas.io pages should use relative paths.
     sed -i ${out} \
-        -e "s,https://istio.io/\(.*/\)\(.*\).html,[\2]({{home}}/\1\2.html),g" \
-        -e "s,http://istio.io/\(.*/\)\(.*\).html,[\2]({{home}}/\1\2.html),g"
+        -e "s,https://grafeas.io/\(.*/\)\(.*\).html,[\2]({{home}}/\1\2.html),g" \
+        -e "s,http://grafeas.io/\(.*/\)\(.*\).html,[\2]({{home}}/\1\2.html),g"
 
     # final pass updating the subcommand's "SEE ALSO" links to the command itself
     sed "s,${commandName}.md,#${commandName},g" ${out};
@@ -101,17 +101,17 @@ function processPerBinaryFiles() {
 
 # Generate our output
 ${MIXCOL_CLI} -o ${WORKING_DIR}
-${ISTIOCTL} markdown --dir ${WORKING_DIR}
-${ISTIO_CA_CLI} markdown --dir ${WORKING_DIR}
+${GRAFEASCTL} markdown --dir ${WORKING_DIR}
+${GRAFEAS_CA_CLI} markdown --dir ${WORKING_DIR}
 
 # Clean up the target directory
 mkdir -p ${OUTPUT_DIR}
 rm -f ${OUTPUT_DIR}/*
 
 generateIndex > ${OUTPUT_DIR}/index.md
-processPerBinaryFiles "istioctl" 1 > ${OUTPUT_DIR}/istioctl.md
+processPerBinaryFiles "grafeasctl" 1 > ${OUTPUT_DIR}/grafeasctl.md
 processPerBinaryFiles "mixc" 101 >  ${OUTPUT_DIR}/mixc.md
 processPerBinaryFiles "mixs" 201 >  ${OUTPUT_DIR}/mixs.md
-processPerBinaryFiles "istio_ca" 301 >  ${OUTPUT_DIR}/istio_ca.md
+processPerBinaryFiles "grafeas_ca" 301 >  ${OUTPUT_DIR}/grafeas_ca.md
 
 rm -rfd ${WORKING_DIR}
