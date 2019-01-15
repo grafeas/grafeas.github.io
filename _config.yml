@@ -51,10 +51,7 @@ exclude:
   - .gitmodules
   - Vagrantfile
   - .vagrant
-  - _docs/concepts/concept.md.template
-  - _docs/tasks/task.md.template
-  - _docs/guides/sample.md.template
-  - _docs/reference/reference.md.template
+  - docs/
   - scripts/
   - Rakefile
   - Jenkinsfile
