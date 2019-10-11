@@ -1,6 +1,6 @@
 ---
 title: Contributing to the Docs
-overview: Learn how to contribute to improve and expand the Istio documentation.
+overview: Learn how to contribute to improve and expand the Grafeas documentation.
 
 order: 100
 
