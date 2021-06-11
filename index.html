@@ -16,15 +16,38 @@ title: Grafeas
 </div>
 
 <section class="hero-wrapper">
+    <div class="jumbotron resilience">
+        <div class="container-fluid">
+            <img class="landing-image pull-right" src="{{home}}/img/pluggable.png" alt="Metadata for software supply chain">
+            <div class="section-content pull-left">
+                <h2>Metadata for software supply chain</h2>
+                <p>
+		    Software supply chains can be described by distinct stages in the software lifecycle,
+		    including but not limited to: source, build, test, static analysis (e.g. compliance, vulnerabilities),
+		    deploy, and production monitoring. Grafeas provides a canonical representation of metadata
+		    for each of the stages. The details of the representation of each stage are determined by the standard
+		    formats in the industry, where applicable. For example, Compliance metadata supports representing
+		    <a href="https://www.cisecurity.org/cis-benchmarks/">CIS benchmarks</a>, and can be easily extended
+		    for other types of compliance benchmarks in the industry.
+		    Easily add new metadata types and providers as your software supply chain grows and evolves.
+		    Bring over metadata for analysis from different tools used across different stages
+		    of the software development lifecycle.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero-wrapper">
     <div class="jumbotron traffic">
         <div class="container-fluid">
             <img class="landing-image pull-left" src="{{home}}/img/universal-metadata.png" alt="Universal Artifact Metadata Store">
             <div class="section-content pull-right">
                 <h2>Universal artifact metadata</h2>
                 <p>
-                    Store, query, and retrieve critical metadata about all of your software artifacts,
-                    regardless of their type and where they are stored. Get 360-degree visibility across
-                    a variety of environments, including on-premises, private, and public cloud clusters.
+		    Store, query, and derive metadata about all of your software artifacts,
+		    regardless of their type and where they are located: container and VM images,
+		    binaries, files, packages on a local machine or private, hybrid or multi-cloud environments.
                 </p>
             </div>
         </div>
@@ -34,13 +57,16 @@ title: Grafeas
 <section class="hero-wrapper">
     <div class="jumbotron resilience">
         <div class="container-fluid">
-            <img class="landing-image pull-right" src="{{home}}/img/pluggable.png" alt="Pluggable">
             <div class="section-content pull-left">
-                <h2>Pluggable</h2>
+                <h2>Insights</h2>
                 <p>
-                    Easily add new metadata types and providers as your software supply chain grows and evolves.
-                    Bring over metadata for analysis from different tools used across different stages
-                    of the software development lifecycle.
+		    Grafeas makes it easy to write complex queries for supply chain information. Some examples are:
+		    <ul>
+		      <li>Find all images that are built from a particular Github commit that is known to have introduced a security problem.</li>
+		      <li>Find all images that were built by a certain version of a certain builder when that builder is known to have been compromised.</li>
+		      <li>Find all images in my project that are impacted by CVE-1234.</li>
+		      <li>Generate a software bill of materials for my image that I will publish externally.</li>
+		    </ul>
                 </p>
             </div>
         </div>
@@ -50,12 +76,15 @@ title: Grafeas
 <section class="hero-wrapper">
     <div class="jumbotron policy">
         <div class="container-fluid">
-            <img class="landing-image pull-left" src="{{home}}/img/granular-access-control.png" alt="Granular access control">
             <div class="section-content pull-right">
-                <h2>Strong access controls</h2>
+                <h2>Horizontal and vertical querying</h2>
                 <p>
-                    Carefully control read/write access to critical metadata about your development pipelines.
-                    Set access controls depending on the role of metadata producers and consumers.
+                    Grafeas enables both kinds of queries for metadata across artifacts.
+		    Horizontal query is a query across all artifacts with a specific property,
+		    e.g. "Find all images that are built from a particular Github commit that is
+		    known to have introduced a security problem". Vertical query is a query about
+		    metadata across software development lifecycle for a specific artifact,
+		    e.g. "Find all source, build, test, and vulnerabilities metadata for a container image."
                 </p>
             </div>
         </div>
@@ -67,17 +96,34 @@ title: Grafeas
         <div class="container-fluid">
             <img class="landing-image pull-right" src="{{home}}/img/rich-querying.png" alt="Rich query-ability">
             <div class="section-content pull-left">
-                <h2>Rich query-ability</h2>
+                <h2>Flexible storage</h2>
                 <p>
-                    Query all metadata across all of your components in real time so you don’t have to parse monolithic
-                    reports on each component. Answer critical questions about your software supply chain like,
-                    "Are any deployed components affected by recently discovered vulnerabilities?"
+                    Grafeas API can store metadata in a wide variety of storage backends:
+		    there are implementations with PostgreSQL, BoltDB, Spanner, and OracleDB.
                 </p>
             </div>
         </div>
     </div>
 </section>
 
+<section class="hero-wrapper">
+    <div class="jumbotron policy">
+        <div class="container-fluid">
+            <div class="section-content pull-right">
+                <h2>Vendor agnostic</h2>
+                <p>
+                    Grafeas makes it easy to keep essential details about the software supply chain,
+		    without the vendor lock-in. So the switch from one CI/CD vendor to another,
+		    or migration from public cloud to hybrid doesn't result in the loss of metadata
+		    about the software artifacts. For example, Build metadata as defined in Grafeas
+		    can be used to represent details of builds on Travis, CircleCI, and Jenkins,
+		    as it stores only the necessary details about the source, build commands,
+		    and the builder itself that are common across all builds, in a generic way.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 <div id="doc-call" class="container-fluid doc-call-container ">
     <div class="row doc-call-row">
         <div class="col-md-10 nofloat center-block">
